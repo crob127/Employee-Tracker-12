@@ -1,14 +1,13 @@
-const { client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
+const client = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'employee_db',
     password: '',
-    port: 4001,
 });
 
-Client.connect();
+client.connect();
 
 const getAllDepartments = async()=>{
     const res = await client.query("SELECT * FROM department");
@@ -41,4 +40,4 @@ const updateEmployeeRole = async(employee_id, role_id)=>{
     await client.query("UPDATE employee SET role_id = $1 WHERE id = $2", [role_id, employee_id]);
 };
 
-moduyle.exports = { getAllDepartments, getAllRoles, getAllEmployees, addDepartment, addRole, addEmployee, updateEmployeeRole };
+module.exports = { getAllDepartments, getAllRoles, getAllEmployees, addDepartment, addRole, addEmployee, updateEmployeeRole };
