@@ -29,8 +29,9 @@ const mainMenu = async()=>{
                 { name: 'first_name', message: "Enter employee's first name:" },
                 { name: 'last_name', message: "Enter employee's last name" },
                 { name: 'role_id', message: "Enter role ID:" },
-                { name: 'manager_id', message: "Enter the manager ID (leave blank if none)", default: null},
+                { name: 'manager_id', message: "Enter the manager ID (Blank if none)", default: null},
             ]);
+            if (employeeData.manager_id == "") employeeData.manager_id=null;
             await addEmployee(employeeData.first_name, employeeData.last_name, employeeData.role_id, employeeData.manager_id);
             console.log("New employee has been added");
             break;

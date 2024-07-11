@@ -25,15 +25,15 @@ const getAllEmployees = async()=>{
 };
 
 const addDepartment = async(name)=>{
-    await client.query("INSERT INTO department (name) Values ($1)", [name]);
+    await client.query("INSERT INTO department (name) VALUES ($1)", [name]);
 };
 
 const addRole = async(title, salary, department_id)=>{
-    await client.query("INSERT INTO role (title, salary, department_id VALUES ($1, $2, $3)", [title, salary, department_id]);
+    await client.query("INSERT INTO role (title, salary, department_id) VALUES ($1, $2, $3)", [title, salary, department_id]);
 };
 
 const addEmployee = async(first_name, last_name, role_id, manager_id)=>{
-    await client.query("INSERT INTO employee (first_name, last_name, role_id, manager_id VALUES ($1, $2, $3, $4)", [first_name, last_name, role_id, manager_id]);
+    await client.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)", [first_name, last_name, role_id, manager_id]);
 };
 
 const updateEmployeeRole = async(employee_id, role_id)=>{
